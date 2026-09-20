@@ -1,0 +1,17 @@
+# IDE
+.idea/
+
+# macOS
+.DS_Store
+
+# Orders and runs — not versioned, except the examples
+orders/*
+!orders/example.md
+runs/*
+!runs/example.md
+
+# Personal profile — copy profile.example.md to profile.md and edit; never versioned
+profile.md
+
+# Claude Code local settings (machine file, not project content)
+.claude/settings.local.json
