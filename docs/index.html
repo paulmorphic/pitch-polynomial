@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pitch Polynomial — an evaluator for product and business ideas</title>
-<meta name="description" content="Six lenses look for a market error. Four checks ask whether it's yours. The number says how much to believe it. An open-source, sourced, adversarial evaluator for product and business ideas.">
+<meta name="description" content="Don't ask whether your idea is good — ask where reality says no. An open-source, sourced, adversarial evaluator for product and business ideas: six lenses, four checks, a score out of 10.">
 <meta property="og:title" content="Pitch Polynomial">
-<meta property="og:description" content="Six lenses look for a market error. Four checks ask whether it's yours. The number says how much to believe it.">
+<meta property="og:description" content="Don't ask whether your idea is good — ask where reality says no. Six lenses look for a market error. Four checks ask whether it's yours.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://paulmorphic.github.io/pitch-polynomial/">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
@@ -63,7 +63,8 @@
   header { padding: 96px 0 64px; text-align: center; }
   .mark { font-family: var(--mono); color: var(--accent); font-size: 0.9rem; margin-bottom: 16px; }
   h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); line-height: 1.05; margin: 0 0 20px; letter-spacing: -0.02em; }
-  .tagline { font-size: 1.25rem; line-height: 1.5; margin: 0 0 12px; }
+  .tagline { font-size: 1.4rem; line-height: 1.4; margin: 0 0 16px; font-weight: 600; }
+  .lead { margin: 0 0 12px; }
   .sub { color: var(--muted); margin: 0 0 32px; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: center; }
   .sigma { color: var(--accent); }
@@ -110,6 +111,13 @@
   ol.lenses span { color: var(--muted); }
 
   .gates { font-family: var(--mono); font-size: 0.85rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin-top: 20px; line-height: 1.8; }
+  .gates div { display: grid; grid-template-columns: 1fr auto; gap: 0 16px; }
+  .gates div span:last-child { white-space: nowrap; }
+
+  ul.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+  ul.rules li { position: relative; padding-left: 28px; }
+  ul.rules li::before { content: "→"; position: absolute; left: 0; font-family: var(--mono); color: var(--accent); }
+  ul.rules li > span { color: var(--muted); }
   .levels { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 0; font-family: var(--mono); font-size: 0.85rem; }
   .levels span { padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px; }
 
@@ -153,7 +161,8 @@
 <header>
   <div class="mark">pitch-polynomial.md</div>
   <h1><span class="sigma">∑</span> Pitch Polynomial</h1>
-  <p class="tagline">Six lenses look for a market error. Four checks ask whether it's yours.<br>The number says how much to believe it.</p>
+  <p class="tagline">Don't ask whether your idea is good —<br>ask where reality says no.</p>
+  <p class="lead">Six lenses look for a market error. Four checks ask whether it's yours. The number says how much to believe it.</p>
   <p class="sub">You already have a product or business idea. This framework tells you where it breaks, with sources, and what your first step is tomorrow. It's one self-contained prompt for any LLM with live web search.</p>
   <div class="actions">
     <a class="btn primary gh" href="https://github.com/paulmorphic/pitch-polynomial">
@@ -177,6 +186,45 @@
 </section>
 
 <section>
+  <h2>A real run, summarized</h2>
+  <div class="example">
+    <div class="head">
+      <b>"Airbnb for GPUs": a marketplace for spare GPU compute</b>
+      <div>solo dev · ~$1,000 budget · 3–6 months to MVP</div>
+    </div>
+    <table>
+      <tr><td>1</td><td>Lenses: no lens supports, three return <span class="kills">kills</span></td><td class="v">0</td></tr>
+      <tr><td>2</td><td>Timing: window opened around 2018, price curve has bent</td><td class="v">0</td></tr>
+      <tr><td>3</td><td>Incumbent: Salad and Vast.ai shipped this years ago</td><td class="v">0</td></tr>
+      <tr><td>4</td><td>Reality: buyers pay for GPU-hours today</td><td class="v">2</td></tr>
+      <tr><td>5</td><td>Builder-fit: no Edge crosses the barrier, and VC contests the segment</td><td class="v">0</td></tr>
+    </table>
+    <div class="verdict">
+      <strong>LOW · 2/10</strong>
+      <p>Three lenses returned <span class="kills">kills</span> on separate facts. Two-week test: be the marketplace by hand, with no code. Success means 5 of 15 renters name a job the existing platforms can't run for a reason other than price, and 2 pay a $50+ invoice.</p>
+    </div>
+    <div class="tomorrow">
+      <b>First step (tomorrow)</b>
+      <p>Message 5 people who posted about their GPU bill in the last month (r/LocalLLaMA, the Vast.ai and RunPod Discords) and ask: <em>"What did you run last month, where, and what did you try to run there that you couldn't?"</em> The same evening, list your own GPU on Vast.ai and Salad to see the host side's real economics.</p>
+    </div>
+  </div>
+  <p class="note">The full evaluation runs several pages, and every finding is linked to its source. <a href="https://github.com/paulmorphic/pitch-polynomial/blob/main/runs/example.md">Read it →</a></p>
+</section>
+
+<section>
+  <h2>Why it says no</h2>
+  <p>The pitch is read before anything is searched, so confirmation is the default failure. Every rule is a counterweight:</p>
+  <ul class="rules">
+    <li><b>Niche first.</b> <span>Judged by where it actually competes, not by how you framed it.</span></li>
+    <li><b>Two hostile searches.</b> <span>Aimed at what would hurt the pitch, not at what would describe its market.</span></li>
+    <li><b>Every finding has a source.</b> <span>Link and date in the same row as the claim.</span></li>
+    <li><b>Kill conditions are binding.</b> <span>When one is met, the verdict is <span class="kills">kills</span>, not a softened <em>neutral</em>.</span></li>
+    <li><b>Gates override the total.</b> <span>A high score can't outvote a fatal flaw.</span></li>
+    <li><b>Ties go down.</b> <span>Torn between two scores, it takes the lower one and says why not higher.</span></li>
+  </ul>
+</section>
+
+<section>
   <h2>The six lenses</h2>
   <ol class="lenses">
     <li><div><b>Linearization trap.</b> <span>Does the curve this pitch rides actually grow the way the pitch assumes?</span></div></li>
@@ -193,37 +241,11 @@
   <p>It measures conviction, not probability: how much the evidence supports taking the bet. The five criteria are lenses, timing, incumbent, reality and builder-fit.</p>
   <div class="levels"><span>HIGH 8–10</span><span>MEDIUM 5–7</span><span>LOW ≤4</span></div>
   <div class="gates">
-    nobody pays for this problem in any form → LOW<br>
-    two or more lenses kill, on separate facts → LOW<br>
-    the incumbent ships it as a feature &nbsp;&nbsp;→ MEDIUM at best<br>
-    the niche couldn't be settled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→ MEDIUM at best
+    <div><span>nobody pays for this problem in any form</span><span>→ LOW</span></div>
+    <div><span>two or more lenses kill, on separate facts, at least one strongly sourced</span><span>→ LOW</span></div>
+    <div><span>the incumbent ships it as a feature</span><span>→ MEDIUM at best</span></div>
+    <div><span>the niche couldn't be settled</span><span>→ MEDIUM at best</span></div>
   </div>
-</section>
-
-<section>
-  <h2>Example output</h2>
-  <div class="example">
-    <div class="head">
-      <b>"Airbnb for GPUs": a marketplace for spare GPU compute</b>
-      <div>solo dev · ~$1,000 budget · 3–6 months to MVP</div>
-    </div>
-    <table>
-      <tr><td>1</td><td>Lenses: no lens supports, three return <span class="kills">kills</span></td><td class="v">0</td></tr>
-      <tr><td>2</td><td>Timing: window opened around 2018, price curve has bent</td><td class="v">0</td></tr>
-      <tr><td>3</td><td>Incumbent: Salad and Vast.ai shipped this years ago</td><td class="v">0</td></tr>
-      <tr><td>4</td><td>Reality: buyers pay for GPU-hours today</td><td class="v">2</td></tr>
-      <tr><td>5</td><td>Builder-fit: VC actively contests this segment</td><td class="v">0</td></tr>
-    </table>
-    <div class="verdict">
-      <strong>LOW · 2/10</strong>
-      <p>Three lenses returned <span class="kills">kills</span> on separate facts. Two-week test: be the marketplace by hand, with no code. Success means 2 people pay a $50+ invoice.</p>
-    </div>
-    <div class="tomorrow">
-      <b>First step (tomorrow)</b>
-      <p>Message 5 people who posted about their GPU bill in the last month (r/LocalLLaMA, the Vast.ai and RunPod Discords) and ask: <em>"What did you run last month, where, and what did you try to run there that you couldn't?"</em> The same evening, list your own GPU on Vast.ai and Salad to see the host side's real economics.</p>
-    </div>
-  </div>
-  <p class="note"><a href="https://github.com/paulmorphic/pitch-polynomial/blob/main/runs/example.md">Read the full evaluation →</a> Every finding is linked to its source.</p>
 </section>
 
 <section>
